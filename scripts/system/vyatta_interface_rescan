@@ -67,8 +67,9 @@ sub persistent_address {
 sub interface_type {
     my $ifname = shift;
 
-    return "ethernet" if ($ifname =~ /^eth/);
-    return "wireless" if ($ifname =~ /^wlan/);
+    return "ethernet"   if ($ifname =~ /^eth/);
+    return "wireless"   if ($ifname =~ /^wlan/);
+    return "infiniband" if ($ifname =~ /^ib/);
 
     die "unknown interface name %s\n", $ifname;
 }
